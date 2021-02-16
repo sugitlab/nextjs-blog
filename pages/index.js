@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 
@@ -27,9 +28,7 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-                {title}
-              <br />
-                ID: {id}
+              <Link href={`/posts/${id}`}>{title}</Link>
               <br />
                 Date: {date}
             </li>
